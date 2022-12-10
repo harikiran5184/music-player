@@ -1,5 +1,8 @@
 <html>
     <head>
+        <title>
+            Music Player
+        </title>
         <style>
             .song{
                 display:list-item;
@@ -129,9 +132,10 @@
               }
               let i=0;
               let w=0;
+              let yu=i;
                function next(){
                 var v=document.getElementById("select");
-                
+                i=yu;
                 if(i==0)
                 {
                     var freader=new FileReader();
@@ -141,7 +145,7 @@
                 var r=document.getElementById("audio");
                 r.src=event.target.result;
                 
-                i=i+1;
+                yu=yu+1;
                 
                 r.play();
                 }
@@ -151,12 +155,12 @@
                {
                 var freader=new FileReader();
                
-               freader.readAsDataURL(v.files[i]);
+               freader.readAsDataURL(v.files[i+1]);
                freader.onloadend=function(event){
                 var r=document.getElementById("audio");
                 r.src=event.target.result;
                
-                i=i+1;
+                yu=yu+1;
                 r.play();
                 }
                 y();
@@ -273,6 +277,9 @@
                  var r=a;
                     document.getElementById("play").style.display="none";
                 document.getElementById("pause").style.display="inline-block";
+                console.log(typeof(id))
+                yu=parseInt(`${id}`);
+                console.log(typeof(yu));
                 r.onended=function(){
                     var v=document.getElementById("select");
                 
