@@ -140,7 +140,7 @@
                 {
                     var freader=new FileReader();
                
-               freader.readAsDataURL(v.files[0]);
+               freader.readAsDataURL(v.files[i+1]);
                freader.onloadend=function(event){
                 var r=document.getElementById("audio");
                 r.src=event.target.result;
