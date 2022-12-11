@@ -284,47 +284,16 @@
                 r.onended=function(){
                     var v=document.getElementById("select");
                 
-                if(id==0)
-                {
-                    var freader=new FileReader();
-               
-               freader.readAsDataURL(v.files[0]);
-               freader.onloadend=function(event){
-                var r=document.getElementById("audio");
-                r.src=event.target.result;
-                
-                id=id+1;
-                
-                r.play();
+                if(id<v.files.length-1){
+                    yu=parseInt(`${id}`);
+                    yu=yu+1;
+                    iu(yu);
                 }
-                y();
-               }
-               else if(id<v.files.length-1)
-               {
-                var freader=new FileReader();
-               
-               freader.readAsDataURL(v.files[id]);
-               freader.onloadend=function(event){
-                var r=document.getElementById("audio");
-                r.src=event.target.result;
-               
-                id=id+1;
-                r.play();
-                }
-                y();
-               }
-               else{
-                var freader=new FileReader();
-               
-               freader.readAsDataURL(v.files[id]);
-               freader.onloadend=function(event){
-                var r=document.getElementById("audio");
-                r.src=event.target.result;
-                
-                
-                id=0;
-                r.play();
-               }}
+               else if(id>v.files.length-1){
+               id=0;
+               yu=parseInt(`${id}`);
+               iu(yu);
+            }
                 };
                 }}
                 function pause(){
